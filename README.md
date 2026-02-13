@@ -48,4 +48,18 @@ Fields: InvoiceDate, Customer ID, Quantity, Price
 ## 🛠 Tools Used
 - SQL (BigQuery)
 - Window Functions (NTILE, LAG)
+
+🧠 RFM Customer Segmentation
+	•	Segmented customers using Recency, Frequency, and Monetary scoring.
+	•	Identified 1,309 Champions customers.
+	•	Detected 151 high-value customers at churn risk.
+	•	Majority (3,032 customers) fall into mid/low engagement group.
+	•	Provides actionable insight for retention and targeted marketing strategies. 🧠 RFM Customer Segmentation
+	•	Segmented customers using Recency, Frequency, and Monetary scoring.
+	•	Identified 1,309 Champions customers.
+	•	Detected 151 high-value customers at churn risk.
+	•	Majority (3,032 customers) fall into mid/low engagement group.
+	•	Provides actionable insight for retention and targeted marketing strategies.
+
+  
 - Aggregation & Segmentation Analysis
