@@ -9,14 +9,12 @@ The goal is to understand:
 - Repeat purchase behavior
 - Monthly revenue growth patterns
 
----
 
 ## 📊 Dataset
 Online Retail II (UCI)  
 ~500K transaction records  
 Fields: InvoiceDate, Customer ID, Quantity, Price
 
----
 
 ## 🔍 Analysis Performed
 
@@ -124,7 +122,13 @@ Revenue growth appears partially event-driven (seasonal or promotional campaigns
 	2.	Build early-warning churn monitoring for high-value customers
 	3.	Develop activation strategies for “New Customers” to convert into Loyal segment
 	4.	Investigate promotional drivers behind extreme monthly spikes
+	
+## 📊 Cohort Retention Heatmap
 
+The following heatmap visualizes monthly customer retention by cohort.  
+Each row represents a cohort grouped by first purchase month, and each column shows retention rates over time.
+
+![Cohort Retention Heatmap](cohort_heatmap.png)
 
 🛠 Tools & Methods
 	•	Google BigQuery (SQL)
