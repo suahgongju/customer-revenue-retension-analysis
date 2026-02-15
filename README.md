@@ -1,5 +1,11 @@
 #Customer Revenue Risk & Predictive Retention Modeling
 
+## Executive Summary
+
+This project quantifies revenue concentration risk and translates predictive churn modeling into financial impact. 
+With Top 10% customers generating 63.9% of total revenue (Gini = 0.74), and a churn model achieving AUC = 0.78, 
+approximately $13.0M in revenue exposure was identified among high-value customers.
+
 ## Project Overview
 
 This project analyzes revenue concentration, retention structure, and churn risk within an e-commerce dataset (Online Retail II, UCI).
@@ -90,6 +96,8 @@ Using predicted churn probabilities:
 - **High-value & high-risk customers identified: 1,056**
 - **Revenue at risk: $13.0M**
 
+This framework enables data-driven prioritization of retention efforts based on quantified financial exposure.
+
 Business Interpretation
 
 Targeted retention efforts on this segment could significantly reduce revenue volatility.
@@ -107,7 +115,7 @@ Business Implications
 3. High-risk high-value customers should receive targeted incentives.
 4. Retention improvements directly translate into measurable revenue impact.
 
-
+This analysis demonstrates the ability to move from structured SQL-based analytics to predictive modeling within a data warehouse environment.
 
 Tools Used
 
