@@ -1,171 +1,133 @@
- Customer Revenue Concentration & Retention Analysis
+#Customer Revenue Risk & Predictive Retention Modeling
 
-Project Overview
-This project analyzes revenue concentration and customer retention structure within an e-commerce dataset.
+## Project Overview
 
-The goal is to understand:
-- How revenue is distributed across customers
-- The level of customer dependency
-- Repeat purchase behavior
-- Monthly revenue growth patterns
+This project analyzes revenue concentration, retention structure, and churn risk within an e-commerce dataset (Online Retail II, UCI).
+
+The objective is to assess whether revenue is sustainably diversified or structurally dependent on a small high-value segment — and to quantify revenue exposure using predictive modeling.
 
 
- Dataset
-Online Retail II (UCI)  
-~500K transaction records  
-Fields: InvoiceDate, Customer ID, Quantity, Price
+## Dataset
 
- Analysis Performed
+- ~500,000 transaction records  
+- Fields: InvoiceDate, Customer ID, Quantity, Price  
+- Platform: Google BigQuery  
 
-1. Customer Lifetime Value (LTV)
-- Calculated total revenue per customer
-- Highest LTV exceeded $608K
+Revenue calculated as:
 
-2. Revenue Concentration (Pareto Analysis)
-- Used SQL NTILE window function
-- Top 10% customers (589 users) generated ~64% of total revenue
-
-3. Repeat Purchase Rate
-- 72% of customers made repeat purchases
-- Indicates strong customer retention structure
-
-4. Month-over-Month Growth
-- Detected 50% revenue surge in March 2010
-- Suggests potential seasonal or promotional impact
+```
+revenue = Quantity × Price
+```
 
 
- Business Implications
-- Revenue heavily depends on VIP segment
-- Strong opportunity for targeted retention strategy
-- Further analysis recommended on high-growth months
-
-
-
- RFM Customer Segmentation
-
-To further understand customer behavior, RFM (Recency, Frequency, Monetary) analysis was performed.
-
-Customers were segmented into:
-
-- Champions (1,309 customers)
-- Loyal (1,041 customers)
-- New Customers (345 customers)
-- At Risk – High Value (151 customers)
-- Others (3,032 customers)
-
-Key Observations
-- Revenue is highly concentrated among high-frequency and high-monetary customers.
-- A small but valuable "At Risk" group exists and may require retention strategies.
-- The business shows a moderate dependency on repeat customers.
-  
-Business Problem
-
-This project investigates whether revenue is sustainably diversified across customers or overly dependent on a small VIP segment.
-
-Key business questions:
-	•	How concentrated is revenue among top customers?
-	•	What is the repeat purchase structure?
-	•	Which customer segments drive long-term value?
-	•	Is growth stable or promotion-driven?
-
+## Revenue Concentration Analysis
+ 
  Key Findings
 
- 1. Revenue Concentration Risk
-	•	Top 10% of customers generate ~64% of total revenue
-    •   Revenue concentration ratio (Top 10% / Total Revenue) = 0.64, indicating structural dependency risk
-	•	Indicates high dependency on VIP customers
-	•	Revenue structure resembles a Pareto distribution
+- **Top 10% of customers generate 63.9% of total revenue**
+- **Gini coefficient: 0.74** → high revenue inequality
+- **HHI: 0.0042** → meaningful concentration despite large customer base
 
- Business Risk:
-If a small portion of high-value customers churn, revenue volatility may increase.
+ Interpretation
 
-Business Impact Simulation:
-If the top 10% VIP segment churn rate increases by 5%, 
-estimated total revenue impact could exceed ~3–4%.
+Revenue is structurally dependent on a small VIP segment.  
+Loss of high-value customers could materially increase revenue volatility.
 
- 2. Repeat Purchase Strength
-	•	Repeat purchase rate: ~72%
-    •   Churn rate implied at ~28%, suggesting moderate but manageable customer decay
-	•	Suggests strong retention foundation
-	•	Business model appears relationship-driven rather than one-time purchase driven
 
- Strategic Insight:
-Retention programs likely contribute significantly to revenue stability.
-
- 3. RFM Customer Segmentation
-
-Customers were segmented using RFM scoring (Recency, Frequency, Monetary):
 
  RFM Customer Segmentation
 
-| Segment | Customers | Characteristics |
-|----------|------------|----------------|
-| Champions | 1,309 | High frequency, recent, high value |
-| Loyal | 1,041 | Consistent repeat buyers |
+| Segment | Customers | Description |
+|----------|-----------|-------------|
+| Champions | 1,309 | High frequency & high value |
+| Loyal | 1,041 | Stable repeat buyers |
 | New Customers | 345 | Recently acquired |
-| At Risk (High Value) | 151 | Previously valuable but declining |
-| Others | 3,032 | Low activity / low value |
+| At Risk (High Value) | 151 | Declining valuable customers |
+| Others | 3,032 | Low activity |
 
- Key Insight:
-	•	A small “At Risk (High Value)” group represents a critical retention opportunity.
-	•	Revenue is heavily driven by high-frequency and high-monetary segments.
+Key insight:
 
-
-4. Monthly Revenue Volatility
-	•	March 2010: +50% MoM growth spike
-	•	Several sharp positive and negative swings detected
-
- Interpretation:
-Revenue growth appears partially event-driven (seasonal or promotional campaigns).
+A small high-value segment disproportionately drives revenue.
 
 
-  Strategic Recommendations
-	1.	Protect top 10% VIP customers with targeted loyalty incentives
-	2.	Build early-warning churn monitoring for high-value customers
-	3.	Develop activation strategies for “New Customers” to convert into Loyal segment
-	4.	Investigate promotional drivers behind extreme monthly spikes
-	
-  Cohort Retention Heatmap
 
-The following heatmap visualizes monthly customer retention by cohort.  
-Each row represents a cohort grouped by first purchase month, and each column shows retention rates over time.
+ Cohort Retention Analysis
 
 ![Cohort Retention Heatmap](cohort_heatmap.png)
 
-If long-term retention improves by 5 percentage points (e.g., from 20% to 25%), this represents a ~25% relative lift in retained customers, potentially driving meaningful long-term revenue stability through improved repeat behavior.
+ Retention Metrics
 
-Key Retention Metrics
+- Average Month-1 retention: ~22%
+- Average Month-3 retention: ~18%
+- 4pp decline (~18% relative drop)
 
-- Average Month-1 Retention: ~22%
-- Average Month-3 Retention: ~18%
-- Retention declines by ~4pp from Month-1 to Month-3 (~18% relative decrease)
-  
- Retention Pattern Insight
+ Interpretation
 
-- Most cohorts experience a steep drop immediately after acquisition,
-  with retention falling to ~22% by Month-1 and stabilizing between 15–25% thereafter.
-- Earlier cohorts (2009–2010) demonstrate stronger mid-term retention.
-- Later cohorts show slightly weaker long-term persistence.
-- Long-term retention stabilizes around 15–25%, indicating sustainable but non-exponential customer stickiness.
-- Overall retention structure is stable but does not exhibit strong compounding growth dynamics.
+Retention stabilizes around 15–25%, indicating sustainable but non-compounding customer persistence.
 
-Limitations
 
-- Dataset lacks marketing channel attribution, limiting causal interpretation.
-- Churn was inferred from inactivity rather than directly observed.
-- Cohort analysis does not control for external macroeconomic factors.
 
- Tools & Methods
-	•	Google BigQuery (SQL)
-	•	Window Functions (NTILE, LAG)
-	•	SAFE_DIVIDE
-	•	RFM Segmentation Logic
+Predictive Churn Modeling (90-Day Definition)
 
- Sample SQL Snippet (Cohort Retention Calculation)
+Churn Definition
 
-```sql
-SAFE_DIVIDE(active_customers, cohort_size) AS retention_rate
-```
+A customer is labeled as churned if no purchase occurs within 90 days after their last transaction.
 
+Model
+
+- Logistic Regression (BigQuery ML)
+- AUC: **0.78**
+- Features: frequency, monetary, tenure, avg order value, purchase interval
+
+The initial model achieved AUC = 1.0 due to feature leakage caused by overlap between recency-based features and churn definition.
+
+
+
+Revenue Risk Simulation
+
+Using predicted churn probabilities:
+
+- **High-value & high-risk customers identified: 1,056**
+- **Revenue at risk: $13.0M**
+
+Business Interpretation
+
+Targeted retention efforts on this segment could significantly reduce revenue volatility.
+
+If churn probability is reduced by just 10% within this group, approximately:
+
+> ~$1.3M in revenue could potentially be preserved.
+
+
+
+Business Implications
+
+1. Revenue concentration risk exists (VIP dependency).
+2. Predictive modeling enables proactive retention.
+3. High-risk high-value customers should receive targeted incentives.
+4. Retention improvements directly translate into measurable revenue impact.
+
+
+
+Tools Used
+
+- Google BigQuery
+- BigQuery ML
+- Window Functions (NTILE, LAG)
+- SAFE_DIVIDE
+- Cohort Analysis
+- Logistic Regression
+
+
+
+Project Outcome
+
+This project transitions from descriptive analytics to predictive revenue risk management, integrating:
+
+- Revenue inequality measurement
+- Behavioral segmentation
+- Cohort retention tracking
+- Machine learning churn prediction
+- Financial exposure estimation
 	
 
