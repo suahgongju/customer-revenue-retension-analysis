@@ -1,4 +1,4 @@
-#Customer Revenue Risk & Predictive Retention Modeling
+# Customer Revenue Risk & Predictive Retention Modeling
 
 ## Executive Summary
 
@@ -19,11 +19,10 @@ The objective is to assess whether revenue is sustainably diversified or structu
 - Fields: InvoiceDate, Customer ID, Quantity, Price  
 - Platform: Google BigQuery  
 
-Revenue calculated as:
+Revenue was calculated as:
 
-```
-revenue = Quantity × Price
-```
+	revenue = Quantity × Price	
+
 
 
 ## Revenue Concentration Analysis
