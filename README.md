@@ -5,6 +5,7 @@
 This project quantifies revenue concentration risk and translates predictive churn modeling into financial impact. 
 With Top 10% customers generating 63.9% of total revenue (Gini = 0.74), and a churn model achieving AUC = 0.78, 
 approximately $13.0M in revenue exposure was identified among high-value customers.
+This project serves as the foundation for a follow-up targeted revenue protection framework.
 
 ## Project Overview
 
