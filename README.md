@@ -1,4 +1,4 @@
-# Customer Revenue Risk & Predictive Retention Modeling
+# Revenue Concentration & Churn Risk Intelligence Model
 
 ## Executive Summary
 
