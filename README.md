@@ -113,7 +113,7 @@ Business Implications
 3. High-risk high-value customers should receive targeted incentives.
 4. Retention improvements directly translate into measurable revenue impact.
 
-This analysis demonstrates the ability to move from structured SQL-based analytics to predictive modeling within a data warehouse environment.
+This project demonstrates the ability to translate structured data analytics into financially grounded, strategy-relevant business insights.
 
 Tools Used
 
