@@ -2,10 +2,7 @@
 
 ## Executive Summary
 
-This project quantifies revenue concentration risk and translates predictive churn modeling into financial impact. 
-With Top 10% customers generating 63.9% of total revenue (Gini = 0.74), and a churn model achieving AUC = 0.78, 
-approximately $13.0M in revenue exposure was identified among high-value customers.
-This project serves as the foundation for a follow-up targeted revenue protection framework.
+This project evaluates structural revenue concentration risk and quantifies financial exposure using predictive churn modeling. The objective is to assess revenue sustainability and inform targeted retention strategy.
 
 ## Project Overview
 
@@ -71,6 +68,7 @@ A small high-value segment disproportionately drives revenue.
 
 Retention stabilizes around 15–25%, indicating sustainable but non-compounding customer persistence.
 
+Early decay patterns suggest intervention opportunities within the first 90 days.
 
 
 Predictive Churn Modeling (90-Day Definition)
@@ -86,7 +84,7 @@ Model
 - Features: frequency, monetary, tenure, avg order value, purchase interval
 
 The initial model achieved AUC = 1.0 due to feature leakage caused by overlap between recency-based features and churn definition.
-
+Feature leakage was resolved by removing overlapping recency signals, improving model validity and generalization.
 
 
 Revenue Risk Simulation
@@ -96,7 +94,7 @@ Using predicted churn probabilities:
 - **High-value & high-risk customers identified: 1,056**
 - **Revenue at risk: $13.0M**
 
-This framework enables data-driven prioritization of retention efforts based on quantified financial exposure.
+This framework enables data-driven prioritization of retention investments by linking churn probability to quantified ROI and revenue exposure.
 
 Business Interpretation
 
